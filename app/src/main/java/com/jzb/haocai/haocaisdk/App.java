@@ -7,7 +7,9 @@ import android.icu.text.Replaceable;
 
 import com.qihoo360.replugin.RePlugin;
 
-public class App extends Application {
+import co.bxvip.sdk.BxRePluginAppLicationMakeImpl;
+
+public class App extends BxRePluginAppLicationMakeImpl {
     @Override
     public void onCreate() {
         super.onCreate();
@@ -36,5 +38,15 @@ public class App extends Application {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         RePlugin.App.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void initJPushYouNeed() {
+
+    }
+
+    @Override
+    public void initRePluginYourNeed() {
+
     }
 }
