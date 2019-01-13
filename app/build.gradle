@@ -3,7 +3,8 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.haocai.ceshi001"
+//        applicationId "com.haocai.ceshi001"
+        applicationId "com.haocai.sdkdemo"
         minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
@@ -12,9 +13,20 @@ android {
 
         manifestPlaceholders = [
                 JPUSH_PKGNAME: applicationId,
-                JPUSH_APPKEY : "652d985f756e263a730e5c9e", //JPush上注册的包名对应的appkey.
+                JPUSH_APPKEY : "e9918ff02c03be2dfaa6a0ac", //JPush上注册的包名对应的appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
+
+        sourceSets {
+            main {
+                jniLibs.srcDirs = ['libs']
+            }
+        }
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'x86', 'armeabi-v7a'
+        }
     }
     buildTypes {
         release {
@@ -27,7 +39,6 @@ android {
             dirs 'libs'
         }
     }
-
 
 }
 
